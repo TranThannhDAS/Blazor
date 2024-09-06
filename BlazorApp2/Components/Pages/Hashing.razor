@@ -1,0 +1,27 @@
+﻿@page "/hashed-routing"
+@inject NavigationManager Navigation
+<PageTitle>Example Page</PageTitle>
+
+<h1>Example Page</h1>
+
+<p>@message</p>
+
+@code {
+    private string message;
+
+
+    // protected override async Task OnParametersSetAsync()
+    // {
+    //     Thực hiện các hành động cần thiết khi các tham số trang được thiết lập
+    //     await OnNavigateAsync();
+    // }
+
+    private async Task OnNavigateAsync()
+    {
+        // Thực hiện các hành động khi điều hướng xảy ra
+        // Ví dụ: tải dữ liệu, xác thực người dùng, v.v.
+        message = "Navigating to example page...";
+        await Task.Delay(500); // Giả lập một số xử lý bất đồng bộ
+        message = "Page loaded successfully.";
+    }
+}

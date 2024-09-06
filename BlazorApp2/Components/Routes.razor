@@ -1,0 +1,20 @@
+﻿@using BlazorApp2.Components.Layout
+<Router AppAssembly="@typeof(Program).Assembly" OnNavigateAsync="HandleNavigateAsync">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p>Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+</Router>
+@code {
+    private async Task HandleNavigateAsync(NavigationContext context)
+    {
+        
+        Console.WriteLine($"Navigating to: {context.Path}");
+        await Task.Delay(500); // Giả lập một số xử lý bất đồng bộ
+    }
+}

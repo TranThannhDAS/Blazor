@@ -1,0 +1,27 @@
+﻿@page "/"
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+@using Microsoft.AspNetCore.Components.Routing
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+<button class="btn btn-primary" @onclick="NavigateToCounterComponent">
+    Navigate to the Counter component
+</button>
+
+
+<Navigating>
+    <p>Loading the requested page&hellip;</p>
+</Navigating>
+@code {
+    private void NavigateToCounterComponent()
+    {
+        Navigation.NavigateTo("/hashed-routing");
+    }
+    protected override void OnInitialized()
+    {
+    }
+}
